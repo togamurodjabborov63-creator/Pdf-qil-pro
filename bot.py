@@ -11,6 +11,31 @@ import uuid
 from datetime import datetime
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
+import os
+from flask import Flask
+from threading import Thread
+
+# Flask ilovasini yaratamiz (Render talab qiladigan portni ushlab turish uchun)
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Bot is running!"
+
+def run_web():
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+
+# Bot va web-serverni bir vaqtning o'zida (thread'da) ishga tushiramiz
+if __name__ == '__main__':
+    # Web serverni alohida oqimda (thread) yoqamiz
+    t = Thread(target=run_web)
+    t.start()
+    
+    # Bu yerda o'zingizning botingizni ishga tushiruvchi qator bo'lishi kerak
+    # Masalan: 
+    # executor.start_polling(dp)  yoki  asyncio.run(main())  va hokazo.
+    print("Bot va Flask server ishga tushdi...")
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, Update
 from telegram.error import TelegramError
