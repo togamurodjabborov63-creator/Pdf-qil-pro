@@ -664,6 +664,12 @@ def main() -> None:
         log.info("Polling rejimi (to'xtatish: Ctrl+C)")
         app.run_polling(drop_pending_updates=True)
 
+import platform
+
+if platform.system() == "Windows":
+    SOFFICE_PATH = r"C:\Program Files\LibreOffice\program\soffice.exe"
+else:
+    SOFFICE_PATH = "/usr/bin/soffice"
 
 if __name__ == "__main__":
     main()
