@@ -1,0 +1,23 @@
+# Maxfiy ma'lumotlar - HECH QACHON GitHub'ga yuklanmasin
+.env
+.env.*
+!.env.example
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Loglar va vaqtinchalik fayllar
+logs/
+*.log
+tmp/
+temp/
+
+# IDE / tizim
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

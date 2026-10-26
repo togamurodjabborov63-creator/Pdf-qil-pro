@@ -1,0 +1,5 @@
+python-telegram-bot[webhooks,job-queue]>=21.6,<23
+Pillow>=10.4
+img2pdf>=0.5.1
+PyMuPDF>=1.24
+python-dotenv>=1.0
